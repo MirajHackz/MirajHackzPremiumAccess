@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miraj Mods Premium</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:Poppins;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* MATRIX BG */
+canvas{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+/* ENTRY */
+#entry{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+.entry-text{
+    font-family:Orbitron;
+    font-size:28px;
+    color:#00ffcc;
+    opacity:0;
+    animation:fade 2s forwards;
+}
+
+.entry-text:nth-child(2){
+    animation-delay:1s;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1;}
+}
+
+/* MAIN */
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:40px;
+}
+
+.hero h1{
+    font-family:Orbitron;
+    font-size:40px;
+    color:#00ffcc;
+    text-shadow:0 0 20px #00ffcc;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #00ffcc;}
+    to{ text-shadow:0 0 30px #00ffcc;}
+}
+
+/* CARD */
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+    box-shadow:0 0 20px rgba(0,255,200,0.1);
+}
+
+/* LIST */
+ul{list-style:none;}
+ul li{
+    padding:8px 0;
+    border-bottom:1px solid #222;
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.buy{background:#00ffcc;color:#000;}
+.telegram{background:#0088cc;color:#fff;}
+
+.qr{
+    display:none;
+    text-align:center;
+}
+
+.qr img{
+    width:280px;
+    margin-top:15px;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    margin:30px;
+    color:#777;
+}
+</style>
+
+<script>
+function showQR(){
+    document.getElementById("qrBox").style.display="block";
+}
+
+setTimeout(()=>{
+    document.getElementById("entry").style.display="none";
+},3000);
+
+/* MATRIX EFFECT */
+window.onload = function(){
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "01";
+const fontSize = 14;
+const columns = canvas.width / fontSize;
+
+const drops = [];
+for(let x=0; x<columns; x++) drops[x]=1;
+
+function draw(){
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#0f0";
+    ctx.font = fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        const text = letters.charAt(Math.floor(Math.random()*letters.length));
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+            drops[i]=0;
+
+        drops[i]++;
+    }
+}
+setInterval(draw,33);
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- ENTRY -->
+<div id="entry">
+<div class="entry-text">⚡Welcome⚡</div>
+<div class="entry-text">👑 Modder King Miraj Premium Access 👑</div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+<h1>🔥 PRIVATE CHANNEL ENTRY 🔥</h1>
+<p>Crack & Transform Any App – Unlimited Possibilities</p>
+</div>
+
+<div class="card">
+<h2>🛠️ What You Can Crack:</h2>
+<ul>
+<li>Subscriptions & In-App Purchases</li>
+<li>OTT Apps 🎬</li>
+<li>Password & Permissions 🔑</li>
+<li>Login Bypass 🔐</li>
+<li>Remove Ads 🚫</li>
+<li>Modify Apps ⚙️</li>
+<li>Boost Performance 🚀</li>
+<li>Unlimited Resources 💰</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🧑‍💻 What You Can Add:</h2>
+<ul>
+<li>Custom Notifications 🔔</li>
+<li>Login Page 📲</li>
+<li>Subscriptions 📋</li>
+<li>App Lock 🔐</li>
+<li>Custom UI ⚡</li>
+<li>Full Customization 🎨</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🎖️ Benefits:</h2>
+<p>Modder King Miraj – Access to All Tutorials</p>
+</div>
+
+<div class="card">
+<h2>💰 Price: ₹299 Lifetime</h2>
+
+<div onclick="showQR()" class="btn buy">
+💳 Proceed to Payment
+</div>
+</div>
+
+<div class="card qr" id="qrBox">
+<h2>💳 Scan & Pay</h2>
+
+<img src="upi.png">
+
+<a href="upi://pay?pa=skmiraj5636@okaxis&pn=Miraj&am=299" class="btn buy">
+💰 Pay Now
+</a>
+
+<a href="https://t.me/ModderKingMirajBot" class="btn telegram">
+📩 Send Screenshot
+</a>
+</div>
+
+<div class="footer">
+© Modder King Miraj
+</div>
+
+</div>
+
+</body>
+</html>
